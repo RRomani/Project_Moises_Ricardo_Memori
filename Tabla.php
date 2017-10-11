@@ -6,23 +6,34 @@
 	<link rel="stylesheet" type="text/css" href="MemoryCSS.css">
 </head>
 <body>
-    <table style="width:100%;position;center">
+    <table style="position;center">
 		<?php
 			$nivel = $_GET["nivel"];
-			$letras= 'A';
 				echo "<tr><td colspan='$nivel'>Memory</td></tr>";
 			for($i=0 ; $i< $nivel ; $i++){
+				//echo "<script>alert('hola')</script>;";
 				echo "<tr>";
 				for($x=0 ; $x<$nivel ;$x++){
-					echo "<th>";
-					echo "$letras";
-					echo "</th>";
-					$letras++;
+					echo "<td>";
+		?>
+		<div class="flip-container" onclick="flip(event)">
+			<div class="flipper">
+				<div class="front">
+					<img src="imagenes/reverso.jpeg" ></img>
+				</div>
+				<div class="back">
+					<img src="imagenes/trollface.jpg"></img>
+				</div>
+			</div>
+		</div>
+		<?php
+					echo "</td>";
 				}		
 				echo "</tr>";
 			}
 		?>
 		</table>
-</body>
+		
+	</body>
 </html>
 

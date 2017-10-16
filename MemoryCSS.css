@@ -27,7 +27,7 @@ img{
 	transform-style: preserve-3d;
 	position: relative;
 }
-.front, .back {
+.front, .back .flip{
 	backface-visibility: hidden;
 	position: absolute;
 	top: 0;

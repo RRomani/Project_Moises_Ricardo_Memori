@@ -38,8 +38,8 @@ Per avaluar el vostre treball d'acord als mòduls M6, M7 i M9, i treure un 10 en
         ...coming soon...
 
 
-Variació per temps
-
+Variació per temp
+s
 Es pot fer una variant del joc: es dona un temps limitat i l'usuari ha de destapar el màxim de caselles possibles.
 
 En aquest cas la puntuació seria el nº de parelles destapades, pel què el rànking hauria de ser descendents (de més punts a menys punts). 

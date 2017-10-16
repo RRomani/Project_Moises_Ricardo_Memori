@@ -7,9 +7,11 @@
 </head>
 <body>
     <table style="position;center">
+		
+		<p id = "Control"></p>
 		<?php
 			$nivel = $_GET["nivel"];
-				echo "<tr><td colspan='$nivel'>Memory</td></tr>";
+				echo "<tr><td colspan='$nivel'>MeMemory</td></tr>";
 			for($i=0 ; $i< $nivel ; $i++){
 				//echo "<script>alert('hola')</script>;";
 				echo "<tr>";
@@ -33,7 +35,6 @@
 			}
 		?>
 		</table>
-		
 	</body>
 </html>
 

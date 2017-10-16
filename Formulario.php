@@ -6,7 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="MemoryCSS.css">
 	</head>
 	<body>
-		<h1>Formulario Memory</h1>
+		<h1>Formulario MeMemory</h1>
 		<form action="Tabla.php" method="GET">
 			<strong>Nivel: </strong>
 			<select name="nivel">

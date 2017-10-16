@@ -8,7 +8,10 @@
 	<body>
 		<h1>Formulario Memory</h1>
 		<form action="Tabla.php" method="GET">
-			<strong>Nivel: </strong>
+			<strong>Nombre: </strong>
+			<input type="text" name="nombre"/>
+			<br>
+			<strong>Nivel: </strong>&nbsp; &nbsp; &nbsp;
 			<select name="nivel" id="lvl">
 				<option hidden>Selecciona...</option>
 				<option value="4">4x4</option>

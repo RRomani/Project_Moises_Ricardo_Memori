@@ -17,21 +17,21 @@
 				5 => 'what.jpg',
 				6 => 'cereal.png',
 				7 => 'fea.jpg',
-				8 => 'mog.jpeg'];
-			$aleatorio = [];
-			$nivel = $_GET["nivel"];			
-			for ($j=$nivel*$nivel ; $j > count($aleatorio) ; $j--){
-				$numAle = random_int(0,($nivel*$nivel)/2);					
-				if($numAle != $aleatorio[$j]){
-					$aleatorio[]=$numAle;
-					}	
-				}
-			print_r($aleatorio);			
-			
+				8 => 'mog.jpeg'];			
+			$nivel = $_GET["nivel"];
+//			$aleatorio = [];			
+//			for ($j=count($aleatorio) ; $j < ($nivel*$nivel)/2  ; $j++){
+//				$numAle = random_int(0,($nivel*$nivel)/2);
+//				if ($numAle == $aleatorio[$j])						
+//					$aleatorio[]=$numAle;
+//				print_r ($aleatorio[$j]);							
+//			}
+//			print_r($aleatorio);
 			echo "<tr><td colspan='$nivel'>MeMemory</td></tr>";
 			for($i=0 ; $i< $nivel ; $i++){
 				echo "<tr>";				
 				for($x=0 ; $x<$nivel ;$x++){
+					$numAle = random_int(0,($nivel*$nivel)/2);			
 					echo "<td>
 							<div class='flip-container' onclick='flip(event)'>
 								<div class='flipper'>

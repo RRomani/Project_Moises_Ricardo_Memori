@@ -7,34 +7,49 @@
 </head>
 <body>
     <table style="position;center">
-		
-		<p id = "Control"></p>
 		<?php
-			$nivel = $_GET["nivel"];
-				echo "<tr><td colspan='$nivel'>MeMemory</td></tr>";
+			$imagenes = [
+				0 => 'trollface.jpg',
+				1 => 'facepalm.png',
+				2 => 'yaoming.jpg',
+				3 => 'mentira.jpg',
+				4 => 'megusta.jpeg',
+				5 => 'what.jpg',
+				6 => 'cereal.png',
+				7 => 'fea.jpg',
+				8 => 'mog.jpeg'];
+			$aleatorio = [];
+			$nivel = $_GET["nivel"];			
+			for ($j=$nivel*$nivel ; $j > count($aleatorio) ; $j--){
+				$numAle = random_int(0,($nivel*$nivel)/2);					
+				if($numAle != $aleatorio[$j]){
+					$aleatorio[]=$numAle;
+					}	
+				}
+			print_r($aleatorio);			
+			
+			echo "<tr><td colspan='$nivel'>MeMemory</td></tr>";
 			for($i=0 ; $i< $nivel ; $i++){
-				//echo "<script>alert('hola')</script>;";
-				echo "<tr>";
+				echo "<tr>";				
 				for($x=0 ; $x<$nivel ;$x++){
-					echo "<td>";
-		?>
-		<div class="flip-container" onclick="flip(event)">
-			<div class="flipper">
-				<div class="front">
-					<img src="imagenes/reverso.jpeg" ></img>
-				</div>
-				<div class="back">
-					<img src="imagenes/trollface.jpg"></img>
-				</div>
-			</div>
-		</div>
-		<?php
-					echo "</td>";
+					echo "<td>
+							<div class='flip-container' onclick='flip(event)'>
+								<div class='flipper'>
+									<div class='front'>
+										<img src='imagenes/reverso.jpeg' ></img>
+									</div>
+									<div class='back'>
+										<img src='imagenes/".$imagenes[$numAle]."'></img>
+									</div>
+								</div>
+							</div>
+						</td>";
 				}		
 				echo "</tr>";
 			}
 		?>
 		</table>
+		
 	</body>
 </html>
 

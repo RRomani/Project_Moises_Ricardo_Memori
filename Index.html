@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html>
-	<meta charset="utf-8"/>
-	<head>
-		<script type="text/javascript" src="js/Memoryjs.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/MemoryCSS.css">
-	</head>
-	<body>
-		<h1>Formulario Memory</h1>
-		<form action="php/Tabla.php" method="POST">
-			<strong>Nombre: </strong>
-			<input type="text" name="nombre"/>
-			<br>
-			<strong>Nivel: </strong>&nbsp; &nbsp; &nbsp;
-			<select name="nivel" id="lvl">
-				<option hidden>Selecciona...</option>
-				<option value="2">2x2</option>
-				<option value="4">4x4</option>
-				<option value="6">6x6</option>
-			</select>
-			<input type="submit" value="Empezar"/>
-		</form>
-	</body>
+<meta charset="utf-8"/>
+<head>
+	<script type="text/javascript" src="js/Memoryjs.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/MemoryCSS.css">
+</head>
+<body background="imagenes/general.png" style="background-size: 100%;background-repeat: no-repeat;">
+	<div class="general">
+		<div id="formulario">
+			<h1>Formulario MEMEmory</h1>
+			<form action="php/Tabla.php" method="POST">
+				<strong>Nombre: </strong>
+				<input type="text" name="nombre"/>
+				<br>
+				<strong>Nivel: </strong>&nbsp; &nbsp; &nbsp;
+				<select name="nivel" id="lvl">
+					<option hidden>Selecciona...</option>
+					<option value="4">4x4</option>
+					<option value="6">6x6</option>
+				</select>
+				<input type="submit" value="Empezar"/>
+			</form>
+		</div>
+	</div>
+</body>
 </html>

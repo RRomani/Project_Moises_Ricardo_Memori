@@ -3,20 +3,21 @@
 <meta charset="utf-8" />
 
 <head>
-    <script type="text/javascript" src="../js/Memoryjs.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/MemoryCSS.css">
+	<script type="text/javascript" src="../js/Memoryjs.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/MemoryCSS.css">
 </head>
 
-<body>
-        <?php
-            echo "<table style='position;center'>";
-            
-        //incluimos un php con el array de cartas
-            include "cartas.php";
-        
-            $cont=0;   
+<body background="../imagenes/general.png" style="background-size: 100%;background-repeat: no-repeat;">
+	<div class="general">
+		<table style="position;center">
+			<?php
+            //incluimos un php con el array de cartas
+			include "cartas.php";
+
+			$cont=0;   
 			$nivel = $_POST["nivel"];
             $nombre = $_POST["nombre"];
+
         //Creamos un array vacio para guardar las cartas
 			$aleatorio=[];		
         //Guardamos el numero de cartas que necesitemos en el array que acabamos de crear
@@ -25,9 +26,9 @@
 				$aleatorio[] = $imagenes[$j];				
 			}
         //Utilizamos la funcion de shuffle para mover el array de manera que desordenaremos las cartas
-            shuffle($aleatorio);
+			shuffle($aleatorio);
         //Creamos el titulo  y el tablero, para assignar la imagen tenemos un contador que nos indicara que imagen del array mostrar
-			echo "<tr><td id='titulo' colspan='$nivel'>MeMemory <br> Intentos: <span id='Control'> </span></td></tr>";
+			echo "<thead><tr><td id='titulo' colspan='$nivel'>MeMemory <br> Intentos: <span id='Control'> </span></td></tr></thead>";
 			for($i=0 ; $i< $nivel ; $i++){
 				echo "<tr>";				
 				for($x=0 ; $x<$nivel ;$x++){
@@ -49,7 +50,6 @@
                 <button type='submit' id='Ranking' player='$nombre'>Volver a empezar!</button>
             </form>";
 		?>
-    
 </body>
 
 </html>

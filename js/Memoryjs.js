@@ -46,8 +46,10 @@ function flip(event) {
             //miramos si victoria es igual al numero de parejas del juego para saber si este a terminado
             var nivel = document.getElementById("titulo").getAttribute("colspan");
             if (victoria == (nivel * nivel) / 2) {
-                alert("Has ganado campeon! :3");
+                var nombre = document.getElementById("Ranking").getAttribute("player");
+                alert("Hola " + nombre + " tu puntuacion a sido de " + contador + "");
                 document.getElementById("restart").setAttribute("style", "display:block");
+
             }
         }, 1000);
     }

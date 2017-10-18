@@ -8,14 +8,15 @@
 </head>
 
 <body>
-    <table style="position;center">
         <?php
-            //incluimos un php con el array de cartas
+            echo "<table style='position;center'>";
+            
+        //incluimos un php con el array de cartas
             include "cartas.php";
         
             $cont=0;   
 			$nivel = $_POST["nivel"];
-		  	
+            $nombre = $_POST["nombre"];
         //Creamos un array vacio para guardar las cartas
 			$aleatorio=[];		
         //Guardamos el numero de cartas que necesitemos en el array que acabamos de crear
@@ -33,8 +34,8 @@
 					echo "<td>
 							<div class='flip-container' onclick='flip(event)'>
 								<div class='flipper'>
-						              <div class='front'><img src='imagenes/reverso.jpeg'></img></div>
-				                      <div class='back' id='".$aleatorio[$cont]."'><img src='imagenes/".$aleatorio[$cont]."'></img></div>
+						              <div class='front'><img src='../imagenes/reverso.jpeg'></img></div>
+				                      <div class='back' id='".$aleatorio[$cont]."'><img src='../imagenes/".$aleatorio[$cont]."'></img></div>
 								</div>
 							</div>
 						</td>";
@@ -42,12 +43,12 @@
 				}		
 				echo "</tr>";
 			}
+    
+        echo "</table>
+            <form action='../Index.html' id='restart' style='display:none'>
+                <button type='submit' id='Ranking' player='$nombre'>Volver a empezar!</button>
+            </form>";
 		?>
-    </table>
-    <!-- Creamos un boton para volver al principio -->
-    <form action="Formulario.php" id="restart" style="display:none">
-        <button type="submit">Volver a empezar!</button>
-    </form>
     
 </body>
 

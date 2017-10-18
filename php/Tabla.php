@@ -3,40 +3,29 @@
 <meta charset="utf-8" />
 
 <head>
-    <script type="text/javascript" src="Memoryjs.js"></script>
-    <link rel="stylesheet" type="text/css" href="MemoryCSS.css">
+    <script type="text/javascript" src="../js/Memoryjs.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/MemoryCSS.css">
 </head>
 
 <body>
     <table style="position;center">
         <?php
+            //incluimos un php con el array de cartas
+            include "cartas.php";
+        
             $cont=0;   
-			$nivel = $_GET["nivel"];
-			$imagenes = [
-				'trollface.jpg',
-				'facepalm.png',
-				'yaoming.jpg',
-				'mentira.jpg',
-				'megusta.jpeg',
-				'what.jpg',
-				'cereal.png',
-				'fea.jpg',
-                'pukerain.jpg',
-                'whynot.png',
-                'pokerface.png',
-                'lol.jpg',
-                'migusta.png',
-                'nth.jpg',
-                'chacc.jpg',
-                'no.jpg',
-                'normal.png',
-                'jackie.jpg'];
+			$nivel = $_POST["nivel"];
+		  	
+        //Creamos un array vacio para guardar las cartas
 			$aleatorio=[];		
-			for ($j=0 ; $j < ($nivel*$nivel)/2  ; $j++){					
-				$aleatorio[] = $imagenes[$j];									
+        //Guardamos el numero de cartas que necesitemos en el array que acabamos de crear
+			for ($j=0 ; $j < ($nivel*$nivel)/2  ; $j++){
+				$aleatorio[] = $imagenes[$j];			
 				$aleatorio[] = $imagenes[$j];				
 			}
+        //Utilizamos la funcion de shuffle para mover el array de manera que desordenaremos las cartas
             shuffle($aleatorio);
+        //Creamos el titulo  y el tablero, para assignar la imagen tenemos un contador que nos indicara que imagen del array mostrar
 			echo "<tr><td id='titulo' colspan='$nivel'>MeMemory <br> Intentos: <span id='Control'> </span></td></tr>";
 			for($i=0 ; $i< $nivel ; $i++){
 				echo "<tr>";				
@@ -55,6 +44,7 @@
 			}
 		?>
     </table>
+    <!-- Creamos un boton para volver al principio -->
     <form action="Formulario.php" id="restart" style="display:none">
         <button type="submit">Volver a empezar!</button>
     </form>

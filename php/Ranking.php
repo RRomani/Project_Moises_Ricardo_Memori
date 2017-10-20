@@ -2,10 +2,11 @@
 	if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['nombre']) && !empty($_POST['puntuacion'])){
 		$nombre_archivo = "ranking";
  
-		if($archivo = fopen("ranking/".$nombre_archivo, "a")){
+		if($archivo = fopen("../ranking/".$nombre_archivo, "a")){
+			echo "Abre archivo";
 			if(fwrite($archivo, $_POST['nombre']. "-".$_POST['puntuacion']. "\n")){
 				fclose($archivo);
-				header("Location: index.html");
+				header("Location: ../Index.html");
 			}else{
 				echo "No se ha podido escribir en el fichero.";
 			}
@@ -15,6 +16,6 @@
 		fclose($archivo);
 		
 	}else{
-		header("Location: index.html");
+		header("Location: ../Index.html");
 	}
 ?>

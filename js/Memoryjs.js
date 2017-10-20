@@ -49,6 +49,8 @@ function flip(event) {
                 var nombre = document.getElementById("Ranking").getAttribute("player");
                 alert("Hola " + nombre + " tu puntuacion a sido de " + contador + "");
                 document.getElementById("restart").setAttribute("style", "display:block");
+                document.getElementById("nombreJugador").value = nombre;
+                document.getElementById("puntuacion").value = contador;
 
             }
         }, 1000);

@@ -23,9 +23,7 @@
                                 $puntuacion = (int) substr ($linea ,$index + 1);
                                 $array[] = array($nombre, $puntuacion);
                             }
-                        }
-                        
-                        
+                        }                        
                         for($i = 1; $i < count($array); $i++){
                             for($j = 0; $j < count($array) - $i; $j++){
                                 if ($array[$j] != null){
@@ -50,7 +48,7 @@
                         echo "</table>";
                     }
 				?>
-				<input type="button" value="Volver" onclick="location='Index.html'" style="margin:10px auto;"/>
+                <input type="button" value="Volver" onclick="location='Index.html'" style="margin:10px auto;" />
 </body>
 
 </html>

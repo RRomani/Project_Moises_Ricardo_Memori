@@ -3,14 +3,14 @@
 <meta charset="utf-8" />
 
 <head>
-	<script type="text/javascript" src="../js/Memoryjs.js"></script>
-	<link rel="stylesheet" type="text/css" href="../css/MemoryCSS.css">
+    <script type="text/javascript" src="../js/Memoryjs.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/MemoryCSS.css">
 </head>
 
-<body background="../imagenes/general.png" style="background-size: 100%;background-repeat: no-repeat;">
-	<div class="general">
-		<table style="position;center">
-			<?php
+<body background="../imagenes/general.png" style="background-size: 100%;background-repeat: no-repeat;" onload="inicializar()">
+    <div class="general">
+        <table style="position;center">
+            <?php
             //incluimos un php con el array de cartas
 			include "cartas.php";
 
@@ -28,7 +28,7 @@
         //Utilizamos la funcion de shuffle para mover el array de manera que desordenaremos las cartas
 			shuffle($aleatorio);
         //Creamos el titulo  y el tablero, para assignar la imagen tenemos un contador que nos indicara que imagen del array mostrar
-			echo "<thead><tr><td id='titulo' colspan='$nivel'>MeMemory <br> Intentos: <span id='Control'> </span></td></tr></thead>";
+			echo "<thead><tr><td id='titulo' colspan='$nivel'>MeMemory <br> Intentos: <span id='Control'> </span> <br> Timing: <br><span id='my_timer'>00:00</span></td></tr></thead>";
 			for($i=0 ; $i< $nivel ; $i++){
 				echo "<tr>";				
 				for($x=0 ; $x<$nivel ;$x++){
@@ -44,13 +44,13 @@
 				}		
 				echo "</tr>";
 			}
-    
-        echo "</table>
-            <form action='Ranking.php' method='POST' id='restart' style='display:none'>
-           		<input type='text' style='display:none' id='nombreJugador' name='nombre' value='".$nombre."'>
-                <input type='text' style='display:none' id='puntuacion' name='puntuacion'>
-                <button type='submit' id='Ranking' player='$nombre'>Volver a empezar!</button>
-            </form>";
+            echo "<audio id='audio' autoplay='false' style='diplay:none'></audio>";
+            echo "</table>
+                <form action='Ranking.php' method='POST' id='restart' style='display:none'>
+                    <input type='text' style='display:none' id='nombreJugador' name='nombre' value='".$nombre."'>
+                    <input type='text' style='display:none' id='puntuacion' name='puntuacion'>
+                    <button type='submit' id='Ranking' player='$nombre'>Volver a empezar!</button>
+                </form>";
 		?>
 </body>
 

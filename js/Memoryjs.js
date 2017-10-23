@@ -11,10 +11,13 @@ function flip(event) {
     if (carta1 == null && carta2 == null && block == false) {
         carta1 = event.currentTarget;
         carta1.setAttribute("class", "flip");
+        carta1.removeAttribute("onclick");
         //lo mismo que arriba pero para el click 2 ya que ahora la carta1 es not null.
     } else if (carta1 != null && carta2 == null && block == false) {
         carta2 = event.currentTarget;
         carta2.setAttribute("class", "flip");
+        carta2.removeAttribute("onclick");
+
         //cambiamos el block a true para que no se pueda entrar en ningun if hasta cambiar la varaible block
         block = true;
     }
@@ -24,36 +27,39 @@ function flip(event) {
         setTimeout(function () {
             //si los ids coinciden, le quitamos el onclick para que se quede boca arriba y no entre a la funcion
             if (carta1.childNodes[1].childNodes[3].getAttribute("id") == carta2.childNodes[1].childNodes[3].getAttribute("id")) {
-                carta1.setAttribute("onclick", " ");
-                carta2.setAttribute("onclick", " ");
                 //ponemos las variables a como estaban al principio
-                carta1 = null;
-                carta2 = null;
-                block = false;
+                EstadoInicial();
                 //usamos un contador para los intentos y victoria para saber cuantas estan bloqueadas
                 victoria += 1;
-                contador += 1;
             } else {
                 carta1.setAttribute("class", "flipped");
+                carta1.setAttribute("onclick", "flip(event)");
                 carta2.setAttribute("class", "flipped");
-                carta1 = null;
-                carta2 = null;
-                block = false;
-                contador += 1;
+                carta2.setAttribute("onclick", "flip(event)");
+                EstadoInicial();
             }
 
             document.getElementById("Control").innerHTML = contador;
             //miramos si victoria es igual al numero de parejas del juego para saber si este a terminado
             var nivel = document.getElementById("titulo").getAttribute("colspan");
             if (victoria == (nivel * nivel) / 2) {
-                var nombre = document.getElementById("Ranking").getAttribute("player");
-                alert("Hola " + nombre + " tu puntuacion a sido de " + contador + "");
-                document.getElementById("restart").setAttribute("style", "display:block");
-                document.getElementById("nombreJugador").value = nombre;
-                document.getElementById("puntuacion").value = contador;
-
+                RecogidaValores();
             }
         }, 1000);
     }
 
+}
+
+function EstadoInicial() {
+    carta1 = null;
+    carta2 = null;
+    block = false;
+    contador += 1;
+}
+
+function RecogidaValores() {
+    var nombre = document.getElementById("Ranking").getAttribute("player");
+    document.getElementById("restart").setAttribute("style", "display:block");
+    document.getElementById("nombreJugador").value = nombre;
+    document.getElementById("puntuacion").value = contador;
 }

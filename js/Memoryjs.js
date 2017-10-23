@@ -55,5 +55,3 @@ function flip(event) {
             }
         }, 1000);
     }
-
-}

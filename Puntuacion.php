@@ -37,15 +37,20 @@
                                 }
                             }
                         }
-                        
+                        echo "<table>
+                                <tr>
+                                    <th style='border-bottom: 5px double black'>Nombre</th>
+                                    <th style='border-bottom: 5px double black'>Puntuacion</th>
+                                </tr>";
                         foreach($array as $registros){
                             if (!empty($registros[0])){
-                                echo "Nombre: ".$registros[0]."    -   Puntuación: ".$registros[1]."<br>";
+                                echo "<tr><th>".$registros[0]."</th><th>".$registros[1]."</th></tr>";
                                 }
                             }
+                        echo "</table>";
                     }
 				?>
-				<input type="button" value="Volver" onclick="location='Index.html'">
+				<input type="button" value="Volver" onclick="location='Index.html'" style="margin:10px auto;"/>
 </body>
 
 </html>

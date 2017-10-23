@@ -46,9 +46,9 @@
 			}
     
         echo "</table>
-            <form action='Ranking.php' method='POST' id='restart' style='display:block'>
-           		<input type='text' id='nombreJugador' name='nombre' value='".$nombre."'>
-                <input type='text' id='puntuacion' name='puntuacion'>
+            <form action='Ranking.php' method='POST' id='restart' style='display:none'>
+           		<input type='text' style='display:none' id='nombreJugador' name='nombre' value='".$nombre."'>
+                <input type='text' style='display:none' id='puntuacion' name='puntuacion'>
                 <button type='submit' id='Ranking' player='$nombre'>Volver a empezar!</button>
             </form>";
 		?>

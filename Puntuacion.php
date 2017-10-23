@@ -12,25 +12,40 @@
         <div id="formulario">
             <h1>Formulario MEMEmory</h1>
             <?php
-                if ($archivo = fopen("ranking/ranking", "r")){
-                    $array[] = array();
-                    while (!feof($archivo)) {
-                        $linea = fgets($archivo);
-                        if (!empty($array) || $nombre == null){
-                            $index = strrpos($linea, "-");
-                            $nombre = substr($linea,0,$index);
-                            $puntuacion = (int) substr ($linea ,$index + 1);
-                            $array []= array($nombre, $puntuacion);
+
+		       		if ($archivo = fopen("ranking/ranking", "r")){
+                        $array[]= array();
+                        while (!feof($archivo)) {
+		       			    $linea = fgets($archivo);
+                            if (!empty($linea)){
+                                $index = strrpos($linea, "-");
+                                $nombre = substr($linea,0,$index);
+                                $puntuacion = (int) substr ($linea ,$index + 1);
+                                $array[] = array($nombre, $puntuacion);
+                            }
                         }
-                    }
-                    print_r(array_sort(array, 'Puntuacion', SORT_DESC));
-                    foreach ($array as $registro) {
-                        if (!empty($registro[0])){
-                            echo "Nombre: ".$registro[0]."    -   Puntuación:".$registro[1]."<br>";
+                        
+                        
+                        for($i = 1; $i < count($array); $i++){
+                            for($j = 0; $j < count($array) - $i; $j++){
+                                if ($array[$j] != null){
+                                if($array[$j][1]>$array[$j+1][1]){
+                                    $k=$array[$j+1];
+					                $array[$j+1]=$array[$j];
+					                $array[$j] = $k;
+                                    }
+                                }
+                            }
                         }
+                        
+                        foreach($array as $registros){
+                            if (!empty($registros[0])){
+                                echo "Nombre: ".$registros[0]."    -   Puntuación: ".$registros[1]."<br>";
+                                }
+                            }
                     }
-                }
-            ?>
+				?>
+				<input type="button" value="Volver" onclick="location='Index.html'">
 </body>
 
 </html>

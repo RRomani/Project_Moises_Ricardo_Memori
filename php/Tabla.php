@@ -28,15 +28,16 @@
         //Utilizamos la funcion de shuffle para mover el array de manera que desordenaremos las cartas
 			shuffle($aleatorio);
         //Creamos el titulo  y el tablero, para assignar la imagen tenemos un contador que nos indicara que imagen del array mostrar
+            echo "<button type='submit' value='Pista' onclick='ayuda()'>PISTA!</button>";
 			echo "<thead><tr><td id='titulo' colspan='$nivel'>MeMemory <br> Intentos: <span id='Control'> </span> <br> Timing: <br><span id='my_timer'>00:00</span></td></tr></thead>";
 			for($i=0 ; $i< $nivel ; $i++){
 				echo "<tr>";				
 				for($x=0 ; $x<$nivel ;$x++){
 					echo "<td>
-							<div class='flip-container' onclick='flip(event)'>
+							<div class='flip-container' id='".$aleatorio[$cont]."' onclick='flip(event)'>
 								<div class='flipper'>
 						              <div class='front'><img src='../imagenes/reverso.jpeg'></img></div>
-				                      <div class='back' id='".$aleatorio[$cont]."'><img src='../imagenes/".$aleatorio[$cont]."'></img></div>
+				                      <div class='back'><img src='../imagenes/".$aleatorio[$cont]."'></img></div>
 								</div>
 							</div>
 						</td>";

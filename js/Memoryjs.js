@@ -4,10 +4,13 @@ var victoria = 0;
 var block = false;
 var carta1;
 var carta2;
+var active = true;
+var cont_Ayudas = 3;
 
 function inicializar() {
     start_timer();
 }
+
 //funcion para cada carta con el metodo event
 function flip(event) {
     //si carta1 no tiene nada asignado, carta2 no tiene nada asignado y la variable "block" es false, a la carta1 le asignamos el div de el primer click y le cambiamos la "class" para que se voltee
@@ -15,13 +18,13 @@ function flip(event) {
         carta1 = event.currentTarget;
         carta1.setAttribute("class", "flip");
         carta1.removeAttribute("onclick");
-        sonidos(1, carta1);
+        sonidos(1);
         //lo mismo que arriba pero para el click 2 ya que ahora la carta1 es not null.
     } else if (carta1 != null && carta2 == null && block == false) {
         carta2 = event.currentTarget;
         carta2.setAttribute("class", "flip");
         carta2.removeAttribute("onclick");
-        sonidos(1, carta2);
+        sonidos(1);
 
         //cambiamos el block a true para que no se pueda entrar en ningun if hasta cambiar la varaible block
         block = true;
@@ -31,16 +34,16 @@ function flip(event) {
         //con setTimeout decimos que haga la funcion en un tiempo determinado (en nuestro caso es 2000 que son 2 segundos)
         setTimeout(function () {
             //si los ids coinciden, le quitamos el onclick para que se quede boca arriba y no entre a la funcion
-            if (carta1.childNodes[1].childNodes[3].getAttribute("id") == carta2.childNodes[1].childNodes[3].getAttribute("id")) {
+            if (carta1.getAttribute("id") == carta2.getAttribute("id")) {
                 //ponemos las variables a como estaban al principio
                 EstadoInicial();
                 sonidos(2);
                 //usamos un contador para los intentos y victoria para saber cuantas estan bloqueadas
                 victoria += 1;
             } else {
-                carta1.setAttribute("class", "flipped");
+                carta1.setAttribute("class", "flip-container");
                 carta1.setAttribute("onclick", "flip(event)");
-                carta2.setAttribute("class", "flipped");
+                carta2.setAttribute("class", "flip-container");
                 carta2.setAttribute("onclick", "flip(event)");
                 EstadoInicial();
                 sonidos(3);
@@ -50,6 +53,7 @@ function flip(event) {
             //miramos si victoria es igual al numero de parejas del juego para saber si este a terminado
             var nivel = document.getElementById("titulo").getAttribute("colspan");
             if (victoria == (nivel * nivel) / 2) {
+                active = false;
                 RecogidaValores();
                 sonidos(5);
             }
@@ -99,7 +103,6 @@ function sonidos(valor) {
             break;
     }
 }
-var active = true;
 
 function start_timer() {
     if (active) {
@@ -122,5 +125,31 @@ function start_timer() {
         }
         document.getElementById("my_timer").innerHTML = min + ":" + sec;
         setTimeout(start_timer, 1000);
+    }
+}
+
+function ayuda() {
+    var cards = document.querySelectorAll(".flip-container");
+    if (cont_Ayudas > 0) {
+        for (i = 0; i < cards.length; i++) {
+            if (cards[i].getAttribute("onclick") == "flip(event)") {
+                cards[i].setAttribute("class", "flip");
+            }
+        }
+        setTimeout(flipBack, 3000);
+        contador += 5;
+        cont_Ayudas--;
+        document.getElementById("Control").innerHTML = contador;
+    } else {
+        alert("No te quedan pistas");
+    }
+}
+
+function flipBack() {
+    var cards = document.querySelectorAll(".flip");
+    for (i = 0; i < cards.length; i++) {
+        if (cards[i].getAttribute("onclick") == "flip(event)") {
+            cards[i].setAttribute("class", "flip-container");
+        }
     }
 }

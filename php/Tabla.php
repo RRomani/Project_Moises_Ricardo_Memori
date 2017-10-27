@@ -1,19 +1,20 @@
 <?php
     session_start();
 ?>
-<!DOCTYPE html>
-<html>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<head>
-    <script type="text/javascript" src="../js/Memoryjs.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/MemoryCSS.css">
-</head>
-<!-- background="../imagenes/general.png" -->
-<body  style="background-size: 100%;background-repeat: no-repeat;" onload="inicializar()">
-    <div class="general">
-        <table style="position;center">
-            <?php
+    <!DOCTYPE html>
+    <html>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <head>
+        <script type="text/javascript" src="../js/Memoryjs.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/MemoryCSS.css">
+    </head>
+
+    <body background="../imagenes/general.png" style="background-size: 100%;background-repeat: no-repeat;" onload="inicializar()">
+        <div class="general">
+            <table style="position;center">
+                <?php
             //incluimos un php con el array de cartas
 			include "cartas.php";
 
@@ -52,14 +53,20 @@
                 }
                 //Creamos el titulo  y el tablero, para assignar la imagen tenemos un contador que nos indicara que imagen del array mostrar
                 
-                
-                echo "<button type='submit' value='Pista' onclick='ayuda()'>PISTA!</button>";
-                echo "<thead><tr><td id='titulo' colspan='$nivel'>MeMemory <br> Intentos: <span id='Control'> </span> <br> Timing: <br><span id='my_timer'>00:00</span></td></tr></thead>";
+                //Creamos el titulo  y el tablero, para assignar la imagen tenemos un contador que nos indicara que imagen del array mostrar
+            
+                echo "<thead><tr><td id='titulo' colspan='$nivel'>MeMemory</td></tr></thead>";
+            echo "<div id='contenedorIntentos'>
+                Intentos: <span id='Control'></span>
+            </div><br><br>
+            <div id='contenedorTiming'>
+                Timing: <span id='my_timer'>00:00</span>
+            </div>";      
                 for($i=0 ; $i< $nivel ; $i++){
                     echo "<tr>";				
                     for($x=0 ; $x<$nivel ;$x++){
                         echo "<td>
-                                <div class='flip' id='".$aleatorio[$cont]."' onclick='flip(event)'>
+                                <div class='flip-container' id='".$aleatorio[$cont]."' onclick='flip(event)'>
                                     <div class='flipper'>
                                           <div class='front'><img src='../imagenes/reverso.jpeg'></img></div>
                                           <div class='back'><img src='../imagenes/".$aleatorio[$cont]."'></img></div>
@@ -79,8 +86,9 @@
                     </form>";
             }
 		?>
-        </table>
-    </div>
-</body>
+            </table>
 
-</html>
+        </div>
+    </body>
+
+    </html>

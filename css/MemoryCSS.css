@@ -53,7 +53,12 @@ td{
     top: 5%;
     left: 10%;
 }
-
+#Ranking{
+    position: relative;
+    top: 5%;
+    left: 10%;
+    float: left
+}
 /*Giro de carta*/
 .flip-container{
 	perspective: 1000px;

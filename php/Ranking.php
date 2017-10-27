@@ -9,9 +9,11 @@
 				header("Location: ../Index.html");
 			}else{
 				echo "No se ha podido escribir en el fichero.";
+                header("Location: ../Index.html");
 			}
 		}else{
 			echo "No se ha podido abrir el fichero.";
+            header("Location: ../Index.html");
 		}
 		fclose($archivo);
 		

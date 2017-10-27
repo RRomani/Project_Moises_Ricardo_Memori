@@ -42,10 +42,10 @@
 				echo "<tr>";				
 				for($x=0 ; $x<$nivel ;$x++){
 					echo "<td>
-							<div class='flip-container' onclick='flip(event)'>
+							<div class='flip-container' id='".$aleatorio[$cont]."' onclick='flip(event)'>
 								<div class='flipper'>
 						              <div class='front'><img src='../imagenes/reverso.jpeg'></img></div>
-				                      <div class='back' id='".$aleatorio[$cont]."'><img src='../imagenes/".$aleatorio[$cont]."'></img></div>
+				                      <div class='back'><img src='../imagenes/".$aleatorio[$cont]."'></img></div>
 								</div>
 							</div>
 						</td>";

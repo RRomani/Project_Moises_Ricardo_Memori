@@ -48,7 +48,7 @@
                         echo "</table>";
                     }
 				?>
-                <input type="button" value="Volver" onclick="location='Index.html'" style="margin:10px auto;" />
+                <input type="button" value="Volver" onclick="location='Index.html'" style="margin:10px auto;"/>
 </body>
 
 </html>

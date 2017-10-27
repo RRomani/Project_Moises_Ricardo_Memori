@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8" />
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
     <script type="text/javascript" src="../js/Memoryjs.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/MemoryCSS.css">
@@ -79,6 +79,8 @@
                     </form>";
             }
 		?>
+        </table>
+    </div>
 </body>
 
 </html>

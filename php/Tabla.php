@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8" />
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
     <script type="text/javascript" src="../js/Memoryjs.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/MemoryCSS.css">
@@ -28,7 +28,16 @@
         //Utilizamos la funcion de shuffle para mover el array de manera que desordenaremos las cartas
 			shuffle($aleatorio);
         //Creamos el titulo  y el tablero, para assignar la imagen tenemos un contador que nos indicara que imagen del array mostrar
-			echo "<thead><tr><td id='titulo' colspan='$nivel'>MeMemory <br> Intentos: <span id='Control'> </span> <br> Timing: <br><span id='my_timer'>00:00</span></td></tr></thead>";
+			echo "<thead><tr><td id='titulo' colspan='$nivel'>MeMemory</td></tr></thead>";
+            ?>
+            <div id="contenedorIntentos">
+                Intentos: <span id="Control"></span>
+            </div><br><br>
+            <div id="contenedorTiming">
+                Timing: <span id='my_timer'>00:00</span>
+            </div>
+            
+            <?php
 			for($i=0 ; $i< $nivel ; $i++){
 				echo "<tr>";				
 				for($x=0 ; $x<$nivel ;$x++){
@@ -46,12 +55,14 @@
 			}
             echo "<audio id='audio' autoplay='false' style='diplay:none'></audio>";
             echo "</table>
-                <form action='Ranking.php' method='POST' id='restart' style='display:none'>
+                <form action='Ranking.php' method='POST' id='restart' style='display:block'>
                     <input type='text' style='display:none' id='nombreJugador' name='nombre' value='".$nombre."'>
                     <input type='text' style='display:none' id='puntuacion' name='puntuacion'>
                     <button type='submit' id='Ranking' player='$nombre'>Volver a empezar!</button>
                 </form>";
 		?>
+        </table>
+    </div>
 </body>
 
 </html>

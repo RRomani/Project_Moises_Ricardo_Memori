@@ -6,7 +6,7 @@
 }
 table{
 	position:relative;
-	margin:0 auto;
+	margin:-5% auto;
 	background: rgba(155,155,155, 0.7);
 }
 thead{
@@ -21,7 +21,7 @@ thead{
 	height: auto;
 	border-radius: 10px;
 	position: relative;
-	top: 30%;
+	top: 5%;
 }
 td{
 	text-align: center;
@@ -34,17 +34,28 @@ td{
 	left: 42%;
 	width: auto;
 	background: rgba(142, 118, 232, 0.3);
-	border-radius: 10px
+	border-radius: 10px;
 }
 
 #restart input, #restart button{
 	font-size: 30px;
 	border-radius: 100px;
 } 
-
+#contenedorIntentos, #contenedorTiming{
+    font-size: 25px;
+    box-shadow: 0px 3px 9px 8px rgba(0,0,0,0.75);
+	border-radius:10px;
+    width: 15%;
+    height: auto;
+    text-align: left;
+    background: rgba(155,155,155, 0.7);
+    position: relative;
+    top: 5%;
+    left: 10%;
+}
 
 /*Giro de carta*/
-.flip-container {
+.flip-container{
 	perspective: 1000px;
 }
 

@@ -9,6 +9,7 @@ var bloqueo = false; //Variable de control para que no se pueda hacer un tercer 
 
 function inicializar() {
     start_timer();
+    document.getElementById('contAyudas').innerHTML = cont_Ayudas;
 }
 
 //funcion para cada carta con el metodo event
@@ -189,6 +190,7 @@ function ayuda() {
 
         contador += 5; // Sumamos 5 intentos por usar la ayuda, esta operacion seria lo mismo que: contador = contador + 5;
         cont_Ayudas--; // Restamos 1 ayuda de las totales, esta operacion seria lo mismo que: cont_Ayudas = cont_Ayudas - 1;
+        document.getElementById('contAyudas').innerHTML = cont_Ayudas;
 
         //Llamamos a la funcion mostrarContador() para actualizar el contador de los intentos.
         mostrarContador;

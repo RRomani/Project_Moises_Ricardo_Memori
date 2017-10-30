@@ -57,11 +57,15 @@
             
                 echo "<thead><tr><td id='titulo' colspan='$nivel'>MeMemory</td></tr></thead>";
             echo "<div id='contenedorIntentos'>
-                Intentos: <span id='Control'></span>
+                Intentos: <span id='Control'>0</span>
             </div><br><br>
             <div id='contenedorTiming'>
                 Timing: <span id='my_timer'>00:00</span>
-            </div>";      
+            </div><br><br>
+            <div id='contenedorAyudas'>
+                <button class = 'ayudas' type='button' onclick='ayuda()'>Ayuda</button> &nbsp; &nbsp; <span id='contAyudas'></span> 
+            </div>";
+                
                 for($i=0 ; $i< $nivel ; $i++){
                     echo "<tr>";				
                     for($x=0 ; $x<$nivel ;$x++){

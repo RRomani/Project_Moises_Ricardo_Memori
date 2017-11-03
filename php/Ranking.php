@@ -10,6 +10,8 @@
 			if(fwrite($archivo, $_POST['nombre']. "-".$_POST['puntuacion']. "\n")){
 				fclose($archivo);
                 unset($_SESSION['aleatorio']);
+                unset($_SESSION['nombre']);
+                unset($_SESSION['nivel']);
 				header("Location: ../Index.html");
 			}else{
 				echo "No se ha podido escribir en el fichero.";

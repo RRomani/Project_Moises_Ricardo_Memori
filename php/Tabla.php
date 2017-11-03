@@ -55,7 +55,7 @@
                 
                 //Creamos el titulo  y el tablero, para assignar la imagen tenemos un contador que nos indicara que imagen del array mostrar
             
-                echo "<thead><tr><td id='titulo' colspan='$nivel'>MeMemory</td></tr></thead>";
+                echo "<thead><tr><td id='titulo' colspan='$nivel''>MeMemory</td></tr></thead>";
             echo "<div id='contenedorIntentos'>
                 Intentos: <span id='Control'>0</span>
             </div><br><br>
@@ -68,9 +68,9 @@
                 
                 for($i=0 ; $i< $nivel ; $i++){
                     echo "<tr>";				
-                    for($x=0 ; $x<$nivel ;$x++){
+                    for($x=0 ; $x< $nivel ;$x++){
                         echo "<td>
-                                <div class='flip-container' id='".$aleatorio[$cont]."' onclick='flip(event)'>
+                                <div class='flip' id='".$aleatorio[$cont]."' onclick='flip(event)'>
                                     <div class='flipper'>
                                           <div class='front'><img src='../imagenes/reverso.jpeg'></img></div>
                                           <div class='back'><img src='../imagenes/".$aleatorio[$cont]."'></img></div>

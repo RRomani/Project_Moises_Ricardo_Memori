@@ -18,30 +18,20 @@
             //incluimos un php con el array de cartas
 			include "cartas.php";
 
-            if(!isset($_SESSION['aleatorio'])){
-                if (!empty($_POST['nombre'])){  
-                    if(!empty($_POST['nivel'])){  
-                            $_SESSION['nombre'] = $_POST['nombre'];
-                            $_SESSION['nivel'] = $_POST['nivel'];
-                            
-                            $aleatorio = [];                        
-                            //Guardamos el numero de cartas que necesitemos en el array que acabamos de crear
-                            for ($j=0 ; $j < ($_POST['nivel']*$_POST['nivel'])/2  ; $j++){
-                                $aleatorio[] = $imagenes[$j];			
-                                $aleatorio[] = $imagenes[$j];				
-                            }
-                            //Utilizamos la funcion de shuffle para mover el array de manera que desordenaremos las cartas
-                            shuffle($aleatorio);
-                            $_SESSION['aleatorio'] = $aleatorio;
-                            
-                        header("Location: Tabla.php");
-                        }else{
-                            echo "<h2>Fallo al recoger el nivel</h2>"; 
-                        }
-                    }else{
-                        echo "<h2>Fallo al recoger el nombre</h2>";    
-                    }
-            }else{
+			if(!isset($_SESSION['aleatorio']) || (empty($_SESSION['nombre']) || empty($_SESSION['nivel'])) ){
+	            $_SESSION['nombre'] = $_POST['nombre'];
+                $_SESSION['nivel'] = $_POST['nivel'];
+                
+                $aleatorio = [];                        
+                //Guardamos el numero de cartas que necesitemos en el array que acabamos de crear
+                for ($j=0 ; $j < ($_POST['nivel']*$_POST['nivel'])/2  ; $j++){
+                    $aleatorio[] = $imagenes[$j];			
+                    $aleatorio[] = $imagenes[$j];				
+                }
+                //Utilizamos la funcion de shuffle para mover el array de manera que desordenaremos las cartas
+                shuffle($aleatorio);
+                $_SESSION['aleatorio'] = $aleatorio;
+			}
                 
                 $cont=0; 
                 $nivel = $_SESSION['nivel'];
@@ -88,7 +78,7 @@
                         <input type='text' style='display:none' id='puntuacion' name='puntuacion'>
                         <button type='submit' id='Ranking' player='$nombre'>Volver a empezar!</button>
                     </form>";
-            }
+            
 		?>
             </table>
 

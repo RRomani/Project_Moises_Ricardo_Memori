@@ -4,14 +4,18 @@
 <?php
 	if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['nombre']) && !empty($_POST['puntuacion'])){
 		$nombre_archivo = "ranking";
- 
+		$nombre = $_POST['nombre'];
+		$puntuacion = $_POST['puntuacion'];
+		$puntuacionPersonal[] = array($nombre, $puntuacion);
+		$_SESSION['puntuacionPersonal'] = $puntuacionPersonal; 
+        unset($_SESSION['aleatorio']);
+        unset($_SESSION['nombre']);
+        unset($_SESSION['nivel']);
+
 		if($archivo = fopen("../ranking/".$nombre_archivo, "a")){
 			echo "Abre archivo";
 			if(fwrite($archivo, $_POST['nombre']. "-".$_POST['puntuacion']. "\n")){
-				fclose($archivo);
-                unset($_SESSION['aleatorio']);
-                unset($_SESSION['nombre']);
-                unset($_SESSION['nivel']);
+				fclose($archivo);                
 				header("Location: ../Index.html");
 			}else{
 				echo "No se ha podido escribir en el fichero.";
